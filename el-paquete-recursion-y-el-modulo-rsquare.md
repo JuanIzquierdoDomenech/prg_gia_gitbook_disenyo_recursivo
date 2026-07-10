@@ -52,4 +52,34 @@ Decimos que los métodos son **pseudo-recursivos** porque, si bien se invocarán
 
 #### Métodos
 
-<table><thead><tr><th width="218.55859375">Perfil</th><th>Visibilidad</th><th>Tipo</th><th>Descripción</th></tr></thead><tbody><tr><td><code>__init__(order, side, center, color)</code></td><td>-</td><td></td><td></td></tr><tr><td><code>order()</code></td><td>público</td><td></td><td></td></tr><tr><td><code>side()</code></td><td>público</td><td></td><td></td></tr><tr><td><code>center()</code></td><td>público</td><td></td><td></td></tr><tr><td><code>color()</code></td><td>público</td><td></td><td></td></tr><tr><td><code>show()</code></td><td>público</td><td></td><td></td></tr><tr><td><code>save(filename)</code></td><td>público</td><td></td><td></td></tr><tr><td><code>init_recursive()</code></td><td>privado</td><td></td><td></td></tr><tr><td><code>draw_recursive(ax)</code></td><td>privado</td><td></td><td></td></tr><tr><td><code>plot_square(ax, cx, cy, l)</code></td><td>privado</td><td></td><td></td></tr></tbody></table>
+<table><thead><tr><th width="205.27734375">Perfil</th><th width="134.0859375">Visibilidad</th><th>Tipo</th><th>Descripción</th></tr></thead><tbody><tr><td><code>__init__(order, side, center, color)</code></td><td>-</td><td>Método constructor de instancia</td><td><p>Inicializa los atributos y valida que los datos de los atributos sean correctos, excepto para <code>color</code> (donde confiaremos en el usuario). </p><p></p><p>Si los datos no son correctos, lanzará un <code>ValueError</code>. </p><p></p><p>Dispara la construcción de la jerarquía recursiva llamando a <code>__init_recursive()</code>. </p><p></p><p>Por defecto, creará un <em>RSquare</em> de orden 2, lado 1, centrado en el origen y de color rojo.</p></td></tr><tr><td><code>order()</code></td><td>público</td><td>Propiedad consultora</td><td>Devuelve el orden de la figura.</td></tr><tr><td><code>side()</code></td><td>público</td><td>Propiedad consultora</td><td>Devuelve el lado del cuadrado</td></tr><tr><td><code>center()</code></td><td>público</td><td>Propiedad consultora</td><td>Devuelve la tupla del centro</td></tr><tr><td><code>color()</code></td><td>público</td><td>Propiedad consultora</td><td>Devuelve el color</td></tr><tr><td><code>show()</code></td><td>público</td><td>Método de instancia</td><td>Inicializa la figura (objeto <code>fig</code> de tipo <code>Figure</code>) y eje (objeto <code>ax</code> de tipo <code>Axes</code>) de Matplotlib (<a href="visualizacion-con-matplotlib.md">más info aquí</a>), llama a <code>__draw_recursive()</code> pasando el objeto <code>ax</code>, y finalmente muestra la figura por pantalla.</td></tr><tr><td><code>save(filename)</code></td><td>público</td><td>Método de instancia</td><td><p>Similar a <code>show()</code>, pero guarda la figura en el archivo <code>filename</code> en lugar de mostrarla por pantalla. </p><p></p><p><a href="visualizacion-con-matplotlib.md#guardando-la-figura-en-un-fichero">Más info aquí</a>.</p></td></tr><tr><td><code>init_recursive()</code></td><td>privado</td><td>Método de instancia</td><td>Método pseudo-recursivo que crea la jerarquía del <code>RSquare</code> : un <code>RSquare</code> de orden <br><span class="math">n</span> tiene un <code>RSquare</code> de orden <span class="math">n-1</span> en cada una de sus esquinas.</td></tr><tr><td><code>draw_recursive(ax)</code></td><td>privado</td><td>Método de instancia</td><td><p>Método pseudo-recursivo que dibuja el cuadrado actual en el objeto tipo <code>Axes</code> de Matplotlib proporcionado <code>ax</code> y delega el dibujado a los <code>RSquare</code> de las esquinas.</p><p> </p><p><a href="visualizacion-con-matplotlib.md#el-objeto-axes-y-la-delegacion-recursiva">Más info aquí</a>.</p></td></tr><tr><td><code>plot_square(ax, cx, cy, l)</code></td><td>privado</td><td>Método de instancia</td><td><p>Realiza la llamada efectiva a <code>ax.plot()</code> para dibujar un cuadrado de lado <code>l</code> centrado en (<code>cx</code>, <code>cy</code>).</p><p></p><p><a href="visualizacion-con-matplotlib.md">Más info aquí</a>.</p></td></tr></tbody></table>
+
+***
+
+## Actividad 2: Implementación de la clase RSquare
+
+Implementa en el módulo `rsquare` la clase `RSquare`. Aquí tienes una plantilla mínima para guiarte:
+
+{% code title="" %}
+```python
+import matplotlib.pyplot as plt
+
+class RSquare:
+    """
+    Clase que representa una figura RSquare (Recursive Square).
+    Un RSquare de orden n se define como un cuadrado que tiene en sus cuatro
+    esquinas otros RSquare de orden n-1 y lado la mitad del original.
+    """
+
+    pass
+```
+{% endcode %}
+
+{% hint style="warning" icon="square" %}
+Recuerda que para que los cuadrados no se vean como rectángulos, debes configurar el aspecto de los ejes con `ax.set_aspect('equal')`.
+{% endhint %}
+
+***
+
+## Actividad 3: Depuración
+
