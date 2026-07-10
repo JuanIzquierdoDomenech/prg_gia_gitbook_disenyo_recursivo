@@ -83,3 +83,135 @@ Recuerda que para que los cuadrados no se vean como rectángulos, debes configur
 
 ## Actividad 3: Depuración
 
+Añade el siguiente código **(SIN MODIFICAR)** al final del fichero `rsquare.py`:
+
+{% hint style="danger" icon="skull-crossbones" %}
+NO MODIFICAR ESTE BLOQUE DE CÓDIGO PRINCIPAL
+
+Su salida se podrá usar el día del examen para evaluaros.
+{% endhint %}
+
+<details>
+
+<summary>Código de test</summary>
+
+{% code title="" %}
+```python
+if __name__ == "__main__":
+
+    print("Intentando crear un rsquare con orden 0...")
+    try:
+        rs = RSquare(order=0)
+    except ValueError as e:
+        print(f"  > Se capturó excepción ValueError correctamente: {e}")
+
+    print("Intentando crear un rsquare con orden negativo...")
+    try:
+        rs = RSquare(order=-1)
+    except ValueError as e:
+        print(f"  > Se capturó excepción ValueError correctamente: {e}")
+
+    print("Intentando crear un rsquare con lado 0...")
+    try:
+        rs = RSquare(side=0)
+    except ValueError as e:
+        print(f"  > Se capturó excepción ValueError correctamente: {e}")
+
+    print("Intentando crear un rsquare con lado negativo...")
+    try:
+        rs = RSquare(side=-1)
+    except ValueError as e:
+        print(f"  > Se capturó excepción ValueError correctamente: {e}")
+
+    print("Intentando crear un rsquare con centro no tupla...")
+    try:
+        rs = RSquare(center="0,0")
+    except ValueError as e:
+        print(f"  > Se capturó excepción ValueError correctamente: {e}")
+
+    print("Intentando crear un rsquare con centro de tupla no numerica (I)...")
+    try:
+        rs = RSquare(center=("0", "0"))
+    except ValueError as e:
+        print(f"  > Se capturó excepción ValueError correctamente: {e}")
+
+    print("Intentando crear un rsquare con centro de tupla no numerica (II)...")
+    try:
+        rs = RSquare(center=(0, "0"))
+    except ValueError as e:
+        print(f"  > Se capturó excepción ValueError correctamente: {e}")
+
+    print("Intentando crear un rsquare con centro de tupla con un elemento...")
+    try:
+        rs = RSquare(center=(0,))
+    except ValueError as e:
+        print(f"  > Se capturó excepción ValueError correctamente: {e}")
+
+    print("Intentando crear un rsquare con centro de tupla con más de dos elementos...")
+    try:
+        rs = RSquare(center=(0,0,0))
+    except ValueError as e:
+        print(f"  > Se capturó excepción ValueError correctamente: {e}")
+
+    # Generamos un RSquare de orden 4 en color azul
+    rs = RSquare(order=3, side=2, center=(1,1), color="green")
+    
+    print(f"RSquare creado con éxito (Orden: {rs.order}, Color: {rs.color})")
+    
+    # Guardamos en PDF para comprobar la exportación
+    rs.save("test_rsquare.pdf")
+    print("Archivo 'test_rsquare.pdf' generado.")
+    
+    # Mostramos por pantalla
+    rs.show()
+```
+{% endcode %}
+
+</details>
+
+Finalmente, úbicate en la raíz del proyecto (`p2`) y ejecuta el módulo `rsquare` como si fuera un script usando la opción `-m` del intérprete de Python:
+
+{% code title="" %}
+```bash
+python -m recursion.rsquare
+```
+{% endcode %}
+
+Por un lado, en la terminal, deberías de generar una salida muy similar a esta:
+
+<details>
+
+<summary>Salida esperada</summary>
+
+{% code title="" %}
+```bash
+Intentando crear un rsquare con orden 0...
+  > Se capturó excepción ValueError correctamente: El orden debe ser mayor o igual a 1.
+Intentando crear un rsquare con orden negativo...
+  > Se capturó excepción ValueError correctamente: El orden debe ser mayor o igual a 1.
+Intentando crear un rsquare con lado 0...
+  > Se capturó excepción ValueError correctamente: El lado debe ser positivo.
+Intentando crear un rsquare con lado negativo...
+  > Se capturó excepción ValueError correctamente: El lado debe ser positivo.
+Intentando crear un rsquare con centro no tupla...
+  > Se capturó excepción ValueError correctamente: El centro debe ser una tupla con dos elementos numéricos.
+Intentando crear un rsquare con centro de tupla no numerica (I)...
+  > Se capturó excepción ValueError correctamente: El centro debe ser una tupla con dos elementos numéricos.
+Intentando crear un rsquare con centro de tupla no numerica (II)...
+  > Se capturó excepción ValueError correctamente: El centro debe ser una tupla con dos elementos numéricos.
+Intentando crear un rsquare con centro de tupla con un elemento...
+  > Se capturó excepción ValueError correctamente: El centro debe ser una tupla con dos elementos numéricos.
+Intentando crear un rsquare con centro de tupla con más de dos elementos...
+  > Se capturó excepción ValueError correctamente: El centro debe ser una tupla con dos elementos numéricos.
+RSquare creado con éxito (Orden: 3, Color: green)
+Archivo 'test_rsquare.pdf' generado.
+```
+{% endcode %}
+
+</details>
+
+Si la semántica de tu salida es diferente a la esperada, revisa tu implementación.
+
+Por otro lado, comprueba que se ha creado el archivo `test_rsquare.pdf` en tu directorio de trabajo y que se ha generado una ventana mostrando la figura. Debería tener el siguiente aspecto:
+
+<figure><img src=".gitbook/assets/test_rsquare.png" alt=""><figcaption><p><em>RSquare</em> de orden 3 dibujado en verde.</p></figcaption></figure>
