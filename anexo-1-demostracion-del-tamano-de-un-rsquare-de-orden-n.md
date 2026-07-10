@@ -57,3 +57,5 @@ $$
 El término que restamos $$\frac{l}{2^{n-1}}$$​, se hace cada vez más pequeño a medida que el orden $$n$$ crece, porque su denominador se duplica en cada nivel. Cuando $$n$$ es muy grande, ese término se aproxima a cero, y el ancho se aproxima a $$2l$$.
 
 Dicho de otra manera, por muy profunda que sea la recursión y por muchos cuadrados que se dibujen, la figura completa nunca llega a medir el doble del lado del cuadrado central. Se acerca a ese valor sin superarlo.
+
+{% embed url="https://claude.ai/public/artifacts/f2aaf601-afb0-40b9-8d29-8d627c99cf35" %}
