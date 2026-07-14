@@ -1,3 +1,24 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # RSquare: Definición recursiva
 
 Un _RSquare_ es una figura geométrica plana que se obtiene mediante la repetición de un patrón básico: un cuadrado, en cuyas cuatro esquinas se pueden disponer otros cuadrados de lado la mitad del original. A su vez, en las esquinas de estos cuadrados más pequeños se pueden disponer otros cuadrados todavía más pequeños, y así sucesivamente. El número de veces $$n \ge 1$$ que se repite este patrón en el dibujo se denomina _orden_ de la figura. De momento, se considerará el tipo de figura denominado _RSquare_, que se define recursivamente de la forma siguiente:

@@ -1,3 +1,24 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # Anexo 1: Demostración del tamaño de un RSquare de orden n
 
 Cuando dibujamos un _RSquare_ de orden $$n$$, la figura no ocupa solo el cuadrado central. Sus cuatro hijos sobresalen por las esquinas, los hijos de esos hijos sobresalen un poco más, y así en cada nivel.&#x20;

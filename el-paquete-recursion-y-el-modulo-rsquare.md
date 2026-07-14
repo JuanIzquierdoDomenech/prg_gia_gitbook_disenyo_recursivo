@@ -1,3 +1,24 @@
+---
+layout:
+  width: wide
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+---
+
 # El paquete recursion y el módulo rsquare
 
 Esta práctica se estructura en forma de un paquete llamado `recursion` que contiene un módulo llamado `rsquare`. Dicho módulo implementará una clase llamada `RSquare` que representa una figura fractal basada en cuadrados.
